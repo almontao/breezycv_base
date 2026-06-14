@@ -1,0 +1,30 @@
+name: Notificar a repositorios hijos
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  avisar-a-los-otros:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Avisar a Repositorio Principal
+        run: |
+          curl -X POST https://api.github.com/repos/almontao/almontao.github.io/dispatches \
+          -H 'Accept: application/vnd.github.v3+json' \
+          -H 'Authorization: token ${{ secrets.MI_PAT_TOKEN }}' \
+          -d '{"event_type": "actualizar-submodulo"}'
+
+      - name: Avisar a Repositorio Blog
+        run: |
+          curl -X POST https://api.github.com/repos/almontao/blog/dispatches \
+          -H 'Accept: application/vnd.github.v3+json' \
+          -H 'Authorization: token ${{ secrets.MI_PAT_TOKEN }}' \
+          -d '{"event_type": "actualizar-submodulo"}'
+
+      - name: Avisar a Repositorio Tesis
+        run: |
+          curl -X POST https://api.github.com/repos/almontao/msc/dispatches \
+          -H 'Accept: application/vnd.github.v3+json' \
+          -H 'Authorization: token ${{ secrets.MI_PAT_TOKEN }}' \
+          -d '{"event_type": "actualizar-submodulo"}'

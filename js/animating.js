@@ -193,6 +193,8 @@ var PageTransitions = (function ($, options) {
             return false;
         }
 
+        console.log("Transición ejecutada número: ", selectedAnimNumber);
+
         switch(selectedAnimNumber) {
             case 1:
                 inClass = 'animated-section-moveFromRight';

@@ -178,7 +178,7 @@ var PageTransitions = (function ($, options) {
             
             // var animNumber = 1; // DESCOMENTA ESTA LÍNEA PARA USAR UNA FIJA (Opciones seguras: 1, 4, 6, 8, 10, 11, 12, 20)
             
-            var seguras = [1, 4, 6, 8, 10, 11, 12, 20];
+            var seguras = [4, 8, 10, 12, 20];
             var animNumber = seguras[Math.floor(Math.random() * seguras.length)];
             
             $pageTrigger.data('animation',animNumber);

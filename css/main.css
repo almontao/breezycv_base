@@ -3012,3 +3012,15 @@ blockquote {
     font-size: 18px;
   }
 }
+
+/* --- CORRECCIÓN PARA EL TÍTULO PRINCIPAL EN MÓVILES --- */
+@media (max-width: 767px) {
+    .title-block h2, #occupation {
+        font-size: 38px !important; /* Achicamos la letra para que quepa en el celular */
+        word-wrap: break-word !important; /* Si la pantalla es muuuy pequeña, corta la palabra en lugar de salirse */
+        white-space: normal !important;
+        overflow-wrap: break-word !important;
+        margin-left: 10px; /* Un poco de margen para que no pegue con los bordes */
+        margin-right: 10px;
+    }
+}

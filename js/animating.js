@@ -170,10 +170,20 @@ var PageTransitions = (function ($, options) {
     function Animate($pageTrigger, gotoPage) {
 
         // Checking for 'data-animation' attribute.
+        //if (!($pageTrigger.attr('data-animation'))) {
+            //var animNumber = parseInt(Math.floor(Math.random() * 67) + 1);
+            //$pageTrigger.data('animation',animNumber);
+        //}
         if (!($pageTrigger.attr('data-animation'))) {
-            var animNumber = parseInt(Math.floor(Math.random() * 67) + 1);
+            
+            // var animNumber = 1; // DESCOMENTA ESTA LÍNEA PARA USAR UNA FIJA (Opciones seguras: del 1 al 12, y del 17 al 20)
+            
+            var seguras = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 17, 18, 19, 20];
+            var animNumber = seguras[Math.floor(Math.random() * seguras.length)];
+            
             $pageTrigger.data('animation',animNumber);
         }
+        // End checking for 'data-animation' attribute.
 
         var animation = $pageTrigger.data('animation').toString(),
             gotoPage, inClass, outClass, selectedAnimNumber;
